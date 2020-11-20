@@ -1,0 +1,19 @@
+{
+  "name": "apifutbol/sdk-php",
+  "version": "1.0.0",
+  "description": "API Futbol SDK for PHP",
+  "keywords": [
+    "api",
+    "sdk",
+    "php",
+    "futbol"
+  ],
+  "authors": [
+    {
+      "name": "Rage Brahimi",
+      "email": "hey@rage.al"
+    }
+  ],
+  "license": "gpl-3.0",
+  "require": {}
+}
