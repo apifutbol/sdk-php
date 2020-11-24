@@ -4,9 +4,9 @@
   "description": "API Futbol SDK for PHP",
   "keywords": [
     "api",
-    "sdk",
-    "php",
-    "futbol"
+    "apifutbol",
+    "js",
+    "php"
   ],
   "authors": [
     {
@@ -15,5 +15,16 @@
     }
   ],
   "license": "gpl-3.0",
-  "require": {}
+  "autoload": {
+    "psr-4": {
+      "APIFutbolAPI\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=5.6",
+    "guzzlehttp/guzzle": "^7.2"
+  },
+  "require-dev": {
+    "overtrue/phplint": "^2.2"
+  }
 }
