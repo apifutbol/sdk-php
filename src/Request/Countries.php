@@ -7,11 +7,11 @@ namespace APIFutbolAPI\Request;
  */
 class Countries extends RequestCollection
 {
-	/**
-	 * Get Countries
-	 */
-	public function getCountries()
-	{
-		return $this->apifutbol->request("countries")->getRawResponse();
-	}
+    /**
+     * Get Countries
+     */
+    public function getCountries()
+    {
+        return $this->apifutbol->request("countries")->getRawResponse();
+    }
 }

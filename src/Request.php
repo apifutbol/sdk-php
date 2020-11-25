@@ -69,7 +69,7 @@ class Request
 
     /**
      * Perform the request and get its raw HTTP response.
-     * 
+     *
      * @return HttpResponseInterface
      */
     public function getHttpResponse()
