@@ -1,6 +1,6 @@
 {
   "name": "apifutbol/sdk-php",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "API Futbol SDK for PHP",
   "scripts": {
     "lint": "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src/ && tools/php-cs-fixer/vendor/bin/php-cs-fixer fix examples/"

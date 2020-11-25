@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b177ba9d08453e4bc5d7543fa9001cdb",
+    "content-hash": "2725dbc86ee9378a1aeabb25ed29f7b8",
     "packages": [
         {
             "name": "corneltek/getoptionkit",
