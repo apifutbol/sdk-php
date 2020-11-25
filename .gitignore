@@ -1,5 +1,7 @@
 # vendor
 /vendor
 
-# lint
-.phplint-cache
+# PHP lint
+
+/.php_cs
+/.php_cs.cache
