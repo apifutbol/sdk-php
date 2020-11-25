@@ -33,6 +33,9 @@ class APIFutbol
     /** @var Request\Countries Collection of Countries related functions. */
     public $countries;
 
+    /** @var Request\Competitions Collection of Competitions related functions. */
+    public $competitions;
+
     /**
      * Constructor.
      *
@@ -48,6 +51,7 @@ class APIFutbol
 
         $this->client = new Client($this);
         $this->countries = new Request\Countries($this);
+        $this->competitions = new Request\Competitions($this);
     }
 
     /**

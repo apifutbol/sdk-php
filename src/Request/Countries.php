@@ -11,6 +11,8 @@ class Countries extends RequestCollection
 {
     /**
      * Get Countries
+     *
+     * @return \APIFutbolAPI\Response\CountriesResponse
      */
     public function getCountries()
     {
