@@ -24,17 +24,31 @@ class Request
     protected $_url;
 
     /**
+     * API Futbol Token
+     *
+     * @var string
+     */
+    protected $_token;
+
+    /**
      * Constructor.
      *
      * @param APIFutbol $parent
      * @param string    $url
+     * @param string    $token
      */
     public function __construct(
         \APIFutbolAPI\APIFutbol $parent,
-        $url
+        $url,
+        $token
     ) {
         $this->_parent = $parent;
         $this->_url = $url;
+        $this->_token = $token;
+
+        if ($this->_token == 'token') {
+            throw new \RuntimeException(sprintf('Replace "token" with your API Futbol Token.'));
+        }
     }
 
     /**
@@ -42,9 +56,8 @@ class Request
      *
      * @return mixed
      */
-    public function getDecodedResponse(
-        $assoc = true
-    ) {
+    public function getDecodedResponse()
+    {
         return Client::apiDecode(
             $this->getRawResponse()
         );
@@ -53,18 +66,11 @@ class Request
     /**
      * Return the raw HTTP response body.
      *
-     * @throws \InvalidArgumentException
-     * @throws \RuntimeException
-     * @throws InstagramException
-     *
      * @return string
      */
     public function getRawResponse()
     {
-        $httpResponse = $this->getHttpResponse(); // Throws.
-        $body = (string) $httpResponse->getBody();
-
-        return $body;
+        return (string) $this->getHttpResponse()->getBody();
     }
 
     /**
@@ -95,6 +101,18 @@ class Request
     {
         $endpoint = Constants::API_URLS['prod'] . $this->_url;
 
-        return new HttpRequest('GET', $endpoint);
+        return new HttpRequest('GET', $endpoint, $this->_defaultHeaders());
+    }
+
+    /**
+     * Default headers for requests.
+     *
+     * @return array
+     */
+    protected function _defaultHeaders()
+    {
+        return [
+            'Authorization' => 'Bearer ' . $this->_token
+        ];
     }
 }

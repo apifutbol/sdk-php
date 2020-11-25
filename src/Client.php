@@ -81,7 +81,7 @@ class Client
     /**
      * Decode a JSON reply.
      *
-     * @param string $json  The body (JSON string) of the API response.
+     * @param string $json
      *
      * @return object|array|null
      */

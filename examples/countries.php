@@ -8,9 +8,9 @@ require __DIR__ . '/../vendor/autoload.php';
 $sdk = new \APIFutbolAPI\APIFutbol('token');
 
 try {
-	$countries = $sdk->countries->getCountries();
-	print_r($countries);
+    $countries = $sdk->countries->getCountries();
+    print_r($countries);
 } catch (\Exception $e) {
-	echo 'Something went wrong: ' . $e->getMessage() . "\n";
-	exit(0);
+    echo 'Something went wrong: ' . $e->getMessage() . "\n";
+    exit(0);
 }
