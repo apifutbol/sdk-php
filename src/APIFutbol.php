@@ -58,6 +58,6 @@ class APIFutbol
     public function request(
         $url
     ) {
-        return new Request($this, $url, $this->token);
+        return new Request($this, $url, $this->token, $this->prod);
     }
 }

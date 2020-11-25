@@ -31,6 +31,13 @@ class Request
     protected $_token;
 
     /**
+     * Toggle Dev / Production mode.
+     *
+     * @var bool
+     */
+    protected $_prod;
+
+    /**
      * Constructor.
      *
      * @param APIFutbol $parent
@@ -40,14 +47,16 @@ class Request
     public function __construct(
         \APIFutbolAPI\APIFutbol $parent,
         $url,
-        $token
+        $token,
+        $prod
     ) {
         $this->_parent = $parent;
         $this->_url = $url;
         $this->_token = $token;
+        $this->_prod = $prod;
 
         if ($this->_token == 'token') {
-            throw new \RuntimeException(sprintf('Replace "token" with your API Futbol Token.'));
+            throw new \RuntimeException('Replace "token" with your API Futbol Token.');
         }
     }
 
@@ -99,7 +108,7 @@ class Request
      */
     protected function _buildHttpRequest()
     {
-        $endpoint = Constants::API_URLS['prod'] . $this->_url;
+        $endpoint = ($this->_prod ? Constants::API_URLS['prod'] : Constants::API_URLS['dev']) . $this->_url;
 
         return new HttpRequest('GET', $endpoint, $this->_defaultHeaders());
     }
