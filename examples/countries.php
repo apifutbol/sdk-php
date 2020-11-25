@@ -5,7 +5,7 @@ date_default_timezone_set('UTC');
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$sdk = new \APIFutbolAPI\APIFutbol('wtanTqv1uK62LkyQkg4dECNQ', true);
+$sdk = new \APIFutbolAPI\APIFutbol('token');
 
 try {
     $countries = $sdk->countries->getCountries()->getData();
