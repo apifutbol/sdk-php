@@ -23,8 +23,15 @@ class APIFutbol
 	 */
 	public $prod;
 
-	/** @var Request\Server Collection of Server related functions. */
-	public $server;
+	/**
+	 * Raw API class.
+	 *
+	 * @var Client
+	 */
+	public $client;
+
+	/** @var Request\Countries Collection of Countries related functions. */
+	public $countries;
 
 	/**
 	 * Constructor.
@@ -39,6 +46,18 @@ class APIFutbol
 		$this->token = $token;
 		$this->prod = $prod;
 
-		$this->server = new Request\Server($this);
+		$this->client = new Client($this);
+		$this->countries = new Request\Countries($this);
+	}
+
+	/**
+	 * Create an API request.
+	 *
+	 * @return \APIFutbolAPI\Request
+	 */
+	public function request(
+		$url
+	) {
+		return new Request($this, $url);
 	}
 }
