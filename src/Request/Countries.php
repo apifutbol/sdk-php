@@ -2,6 +2,8 @@
 
 namespace APIFutbolAPI\Request;
 
+use APIFutbolAPI\Response;
+
 /**
  * Functions related to Countries
  */
@@ -12,6 +14,8 @@ class Countries extends RequestCollection
      */
     public function getCountries()
     {
-        return $this->apifutbol->request("countries")->getRawResponse();
+        $request = $this->apifutbol->request("countries");
+
+        return new Response\CountriesResponse($request->getDecodedResponse());
     }
 }
