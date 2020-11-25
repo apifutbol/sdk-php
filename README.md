@@ -7,3 +7,9 @@
 <h1 align="center">
   API Futbol SDK for PHP
 </h1>
+
+## Installation
+
+```
+composer require apifutbol/sdk-php
+```
