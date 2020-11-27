@@ -5,11 +5,11 @@ namespace APIFutbolAPI\Response\Collection;
 use APIFutbolAPI\Response;
 
 /**
- * CompetitionsResponse.
+ * CompetitionsItemResponse.
  *
  * @method Model\Competitions[] getCompetitions()
  */
-class CompetitionsResponse extends Response
+class CompetitionsItemResponse extends Response
 {
     const JSON_PROPERTY_MAP = [
         'competitions' => 'Model\Competitions[]'

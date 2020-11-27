@@ -23,4 +23,19 @@ class Competition extends RequestCollection
 
         return new Response\CompetitionResponse($request->getDecodedResponse());
     }
+
+    /**
+     * Get Table
+     *
+     * @param string $id
+     *
+     * @return \APIFutbolAPI\Response\CompetitionTableResponse
+     */
+    public function getCompetitionTable(
+        $id
+    ) {
+        $request = $this->apifutbol->request("competition/{$id}/table");
+
+        return new Response\CompetitionTableResponse($request->getDecodedResponse());
+    }
 }

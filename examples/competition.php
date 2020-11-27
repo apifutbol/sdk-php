@@ -7,10 +7,10 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $sdk = new \APIFutbolAPI\APIFutbol('token');
 
-$competition = '';
+$competitionId = '';
 
 try {
-    $competition = $sdk->competition->getCompetition($competition)->getData()->getCompetition();
+    $competition = $sdk->competition->getCompetition($competitionId)->getData()->getCompetition();
 
     print_r([
         'id' => $competition->getId(),

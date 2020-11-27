@@ -5,30 +5,29 @@ namespace APIFutbolAPI\Response\Collection\Model;
 use APIFutbolAPI\Response;
 
 /**
- * Competition.
+ * CompetitionTable.
  *
  * @method string 	getId()
  * @method string 	getName()
  * @method int 		getRank()
- * @method int 		getPoints()
  * @method int 		getWon()
  * @method int 		getDrawn()
  * @method int 		getLost()
+ * @method int 		getScored()
  * @method int 		getConceded()
  * @method int 		getDifference()
  */
-class Competition extends Response
+class CompetitionTable extends Response
 {
     const JSON_PROPERTY_MAP = [
         'id' => 'string',
         'name' => 'string',
         'rank' => 'int',
-        'points' => 'int',
-        'won' => 'bool',
-        'drawn' => 'bool',
-        'lost' => 'bool',
-        'scored' => 'bool',
-        'conceded' => 'bool',
-        'difference' => 'bool'
+        'won' => 'int',
+        'drawn' => 'int',
+        'lost' => 'int',
+        'scored' => 'int',
+        'conceded' => 'int',
+        'difference' => 'int'
     ];
 }
