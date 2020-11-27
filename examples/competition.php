@@ -7,15 +7,19 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $sdk = new \APIFutbolAPI\APIFutbol('token');
 
-try {
-    $competition = $sdk->competitions->getCompetition('XX8syTD')->getData();
+$competition = '';
 
-    foreach ($competition->getCompetition() as $competition) {
-        print_r([
-            'id' => $competition->getId(),
-            'name' => $competition->getName()
-        ]);
-    }
+try {
+    $competition = $sdk->competition->getCompetition($competition)->getData()->getCompetition();
+
+    print_r([
+        'id' => $competition->getId(),
+        'name' => $competition->getName(),
+        'start' => $competition->getStart(),
+        'end' => $competition->getEnd(),
+        'table' => $competition->getTable(),
+        'seasons' => $competition->getSeasons()
+    ]);
 } catch (\Exception $e) {
     echo 'Something went wrong: ' . $e->getMessage() . "\n";
     exit(0);

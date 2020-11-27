@@ -1,17 +1,17 @@
 <?php
 
-namespace APIFutbolAPI\Response\Collection;
+namespace APIFutbolAPI\Response;
 
 use APIFutbolAPI\Response;
 
 /**
  * CompetitionResponse.
  *
- * @method Model\Competition[] getCompetition()
+ * @method CompetitionResponse[] getData()
  */
 class CompetitionResponse extends Response
 {
     const JSON_PROPERTY_MAP = [
-        'competition' => 'Model\Competition'
+        'data' => 'Collection\CompetitionResponse'
     ];
 }
