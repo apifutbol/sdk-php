@@ -9,17 +9,17 @@ use APIFutbolAPI\APIFutbol;
  */
 class RequestCollection
 {
-    /** @var APIFutbol */
-    public $apifutbol;
+  /** @var APIFutbol */
+  public $apifutbol;
 
-    /**
-     * Constructor.
-     *
-     * @param APIFutbol $parent
-     */
-    public function __construct(
-        $parent
-    ) {
-        $this->apifutbol = $parent;
-    }
+  /**
+   * Constructor.
+   *
+   * @param APIFutbol $parent
+   */
+  public function __construct(
+    $parent
+  ) {
+    $this->apifutbol = $parent;
+  }
 }

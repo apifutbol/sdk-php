@@ -9,43 +9,43 @@ namespace APIFutbolAPI;
  */
 class APIFutbol
 {
-    /**
-     * Raw API class.
-     *
-     * @var Client
-     */
-    public $client;
+  /**
+   * Raw API class.
+   *
+   * @var Client
+   */
+  public $client;
 
-    /** @var Request\Countries Collection of Countries related functions. */
-    public $countries;
+  /** @var Request\Countries Collection of Countries related functions. */
+  public $countries;
 
-    /**
-     * Constructor.
-     *
-     * @param string  	$token
-     * @param bool  	$prod
-     */
-    public function __construct(
-        $token
-    ) {
-        if ($token == 'token') {
-            throw new \RuntimeException('Replace "token" with your API Futbol Token.');
-        }
-
-        $this->client = new Client($this, $token);
-        $this->countries = new Request\Countries($this);
+  /**
+   * Constructor.
+   *
+   * @param string  	$token
+   * @param bool  	$prod
+   */
+  public function __construct(
+    $token
+  ) {
+    if ($token == 'token') {
+      throw new \RuntimeException('Replace "token" with your API Futbol Token.');
     }
 
-    /**
-     * Create an API request.
-     *
-     * @param array    $body
-     *
-     * @return \APIFutbolAPI\Request
-     */
-    public function request(
-        $body
-    ) {
-        return new Request($this, $body);
-    }
+    $this->client = new Client($this, $token);
+    $this->countries = new Request\Countries($this);
+  }
+
+  /**
+   * Create an API request.
+   *
+   * @param array    $body
+   *
+   * @return \APIFutbolAPI\Request
+   */
+  public function request(
+    $body
+  ) {
+    return new Request($this, $body);
+  }
 }

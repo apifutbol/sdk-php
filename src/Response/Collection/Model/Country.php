@@ -13,7 +13,7 @@ use APIFutbolAPI\Response;
  */
 class Country extends Response
 {
-    const JSON_PROPERTY_MAP = [
-        'id' => 'string',
-    ];
+  const JSON_PROPERTY_MAP = [
+    'id' => 'string',
+  ];
 }

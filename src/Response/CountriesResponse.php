@@ -11,7 +11,7 @@ use APIFutbolAPI\Response;
  */
 class CountriesResponse extends Response
 {
-    const JSON_PROPERTY_MAP = [
-        'data' => 'Collection\CountryResponse',
-    ];
+  const JSON_PROPERTY_MAP = [
+    'data' => 'Collection\CountryResponse',
+  ];
 }

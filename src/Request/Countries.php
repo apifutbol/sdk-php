@@ -9,23 +9,23 @@ use APIFutbolAPI\Response;
  */
 class Countries extends RequestCollection
 {
-    /**
-     * Get Countries
-     *
-     * @return \APIFutbolAPI\Response\CountriesResponse
-     */
-    public function getCountries()
-    {
-        $body = [
-            'query' => 'query {
-                countries {
-                    id
-                }
-            }',
-            'variables' => []
-        ];
-        $request = $this->apifutbol->request($body);
+  /**
+   * Get Countries
+   *
+   * @return \APIFutbolAPI\Response\CountriesResponse
+   */
+  public function getCountries()
+  {
+    $body = [
+      'query' => 'query {
+        countries {
+          id
+        }
+      }',
+      'variables' => []
+    ];
+    $request = $this->apifutbol->request($body);
 
-        return new Response\CountriesResponse($request->getDecodedResponse());
-    }
+    return new Response\CountriesResponse($request->getDecodedResponse());
+  }
 }

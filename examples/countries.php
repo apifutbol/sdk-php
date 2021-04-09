@@ -8,12 +8,12 @@ require __DIR__ . '/../vendor/autoload.php';
 $sdk = new \APIFutbolAPI\APIFutbol('token');
 
 try {
-    $countries = $sdk->countries->getCountries()->getData();
+  $countries = $sdk->countries->getCountries()->getData();
 
-    foreach ($countries->getCountries() as $country) {
-        print_r([$country->getId()]);
-    };
+  foreach ($countries->getCountries() as $country) {
+    print_r([$country->getId()]);
+  };
 } catch (\Exception $e) {
-    echo 'Something went wrong: ' . $e->getMessage() . "\n";
-    exit(0);
+  echo 'Something went wrong: ' . $e->getMessage() . "\n";
+  exit(0);
 }
