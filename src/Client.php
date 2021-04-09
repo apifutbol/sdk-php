@@ -21,13 +21,6 @@ class Client
   protected $_parent;
 
   /**
-   * Developer Token
-   *
-   * @var string
-   */
-  public $token;
-
-  /**
    * @var \GuzzleHttp\Client
    */
   private $_guzzleClient;
