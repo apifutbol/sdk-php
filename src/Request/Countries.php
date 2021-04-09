@@ -16,23 +16,16 @@ class Countries extends RequestCollection
      */
     public function getCountries()
     {
-        $request = $this->apifutbol->request("countries");
+        $body = [
+            'query' => 'query {
+                countries {
+                    id
+                }
+            }',
+            'variables' => []
+        ];
+        $request = $this->apifutbol->request($body);
 
         return new Response\CountriesResponse($request->getDecodedResponse());
-    }
-
-    /**
-     * Get Competitions
-     *
-     * @param string $id
-     *
-     * @return \APIFutbolAPI\Response\CompetitionsResponse
-     */
-    public function getCompetitions(
-        $id
-    ) {
-        $request = $this->apifutbol->request("countries/{$id}/competitions");
-
-        return new Response\CompetitionsResponse($request->getDecodedResponse());
     }
 }

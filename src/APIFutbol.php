@@ -10,20 +10,6 @@ namespace APIFutbolAPI;
 class APIFutbol
 {
     /**
-     * Developer Token
-     *
-     * @var string
-     */
-    public $token;
-
-    /**
-     * Toggle Dev / Production mode.
-     *
-     * @var bool
-     */
-    public $prod;
-
-    /**
      * Raw API class.
      *
      * @var Client
@@ -33,9 +19,6 @@ class APIFutbol
     /** @var Request\Countries Collection of Countries related functions. */
     public $countries;
 
-    /** @var Request\Competition Collection of Competition related functions. */
-    public $competition;
-
     /**
      * Constructor.
      *
@@ -43,25 +26,26 @@ class APIFutbol
      * @param bool  	$prod
      */
     public function __construct(
-        $token,
-        $prod = false
+        $token
     ) {
-        $this->token = $token;
-        $this->prod = $prod;
+        if ($token == 'token') {
+            throw new \RuntimeException('Replace "token" with your API Futbol Token.');
+        }
 
-        $this->client = new Client($this);
+        $this->client = new Client($this, $token);
         $this->countries = new Request\Countries($this);
-        $this->competition = new Request\Competition($this);
     }
 
     /**
      * Create an API request.
      *
+     * @param array    $body
+     *
      * @return \APIFutbolAPI\Request
      */
     public function request(
-        $url
+        $body
     ) {
-        return new Request($this, $url, $this->token, $this->prod);
+        return new Request($this, $body);
     }
 }

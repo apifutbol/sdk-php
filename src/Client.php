@@ -2,9 +2,10 @@
 
 namespace APIFutbolAPI;
 
+use APIFutbolAPI\Constants;
+
 use GuzzleHttp\Client as GuzzleClient;
 
-use Psr\Http\Message\RequestInterface as HttpRequestInterface;
 use Psr\Http\Message\ResponseInterface as HttpResponseInterface;
 
 /**
@@ -20,6 +21,13 @@ class Client
     protected $_parent;
 
     /**
+     * Developer Token
+     *
+     * @var string
+     */
+    public $token;
+
+    /**
      * @var \GuzzleHttp\Client
      */
     private $_guzzleClient;
@@ -28,26 +36,34 @@ class Client
      * Constructor.
      *
      * @param APIFutbol $parent
-     * @param string    $url
+     * @param string    $token
      */
     public function __construct(
-        \APIFutbolAPI\APIFutbol $parent
+        \APIFutbolAPI\APIFutbol $parent,
+        $token
     ) {
         $this->_parent = $parent;
 
-        $this->_guzzleClient = new GuzzleClient();
+        $this->_guzzleClient = new GuzzleClient([
+            'base_uri' => Constants::API_URL,
+            'headers' => [
+                'Authorization' => 'Bearer ' . $token
+            ]
+        ]);
     }
 
     /**
      * Wraps Guzzle Request.
      *
+     * @param array $body
+     *
      * @return HttpResponseInterface
      */
     protected function _guzzleRequest(
-        HttpRequestInterface $request
+        $body
     ) {
         try {
-            $response = $this->_guzzleClient->send($request);
+            $response = $this->_guzzleClient->request('POST', '/graphql', ['json' => $body]);
         } catch (\Exception $e) {
             echo 'Something went wrong: ' . $e->getMessage() . "\n";
             exit(0);
@@ -57,25 +73,16 @@ class Client
     }
 
     /**
-     * Wrapper around _guzzleRequest().
-     *
-     * @return HttpResponseInterface
-     */
-    protected function _apiRequest(
-        HttpRequestInterface $request
-    ) {
-        return $this->_guzzleRequest($request);
-    }
-
-    /**
      * Perform an API call.
+     *
+     * @param array $body
      *
      * @return HttpResponseInterface
      */
     public function api(
-        HttpRequestInterface $request
+        $body
     ) {
-        return $this->_apiRequest($request);
+        return $this->_guzzleRequest($body);
     }
 
     /**

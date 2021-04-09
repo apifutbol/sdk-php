@@ -2,8 +2,6 @@
 
 namespace APIFutbolAPI;
 
-use GuzzleHttp\Psr7\Request as HttpRequest;
-
 /**
  * API Futbol Client calls.
  */
@@ -17,47 +15,24 @@ class Request
     protected $_parent;
 
     /**
-     * Endpoint URL for request
+     * GraphQL Request
      *
-     * @var string
+     * @var array
      */
-    protected $_url;
-
-    /**
-     * API Futbol Token
-     *
-     * @var string
-     */
-    protected $_token;
-
-    /**
-     * Toggle Dev / Production mode.
-     *
-     * @var bool
-     */
-    protected $_prod;
+    protected $_body;
 
     /**
      * Constructor.
      *
      * @param APIFutbol $parent
-     * @param string    $url
-     * @param string    $token
+     * @param array     $body
      */
     public function __construct(
         \APIFutbolAPI\APIFutbol $parent,
-        $url,
-        $token,
-        $prod
+        $body
     ) {
         $this->_parent = $parent;
-        $this->_url = $url;
-        $this->_token = $token;
-        $this->_prod = $prod;
-
-        if ($this->_token == 'token') {
-            throw new \RuntimeException('Replace "token" with your API Futbol Token.');
-        }
+        $this->_body = $body;
     }
 
     /**
@@ -91,7 +66,7 @@ class Request
     {
         try {
             $this->_httpResponse = $this->_parent->client->api(
-                $this->_buildHttpRequest()
+                $this->_body
             );
         } catch (\Exception $e) {
             echo 'Something went wrong: ' . $e->getMessage() . "\n";
@@ -99,29 +74,5 @@ class Request
         }
 
         return $this->_httpResponse;
-    }
-
-    /**
-     * Build HTTP request object.
-     *
-     * @return HttpRequest
-     */
-    protected function _buildHttpRequest()
-    {
-        $endpoint = ($this->_prod ? Constants::API_URLS['prod'] : Constants::API_URLS['dev']) . $this->_url;
-
-        return new HttpRequest('GET', $endpoint, $this->_defaultHeaders());
-    }
-
-    /**
-     * Default headers for requests.
-     *
-     * @return array
-     */
-    protected function _defaultHeaders()
-    {
-        return [
-            'Authorization' => 'Bearer ' . $this->_token
-        ];
     }
 }

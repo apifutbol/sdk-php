@@ -10,13 +10,9 @@ $sdk = new \APIFutbolAPI\APIFutbol('token');
 try {
     $countries = $sdk->countries->getCountries()->getData();
 
-    foreach ($countries->getCountry() as $country) {
-        print_r([
-            'id' => $country->getId(),
-            'name' => $country->getName(),
-            'competitions' => $country->getCompetitions(),
-        ]);
-    }
+    foreach ($countries->getCountries() as $country) {
+        print_r([$country->getId()]);
+    };
 } catch (\Exception $e) {
     echo 'Something went wrong: ' . $e->getMessage() . "\n";
     exit(0);

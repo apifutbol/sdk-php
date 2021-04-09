@@ -15,7 +15,5 @@ class Country extends Response
 {
     const JSON_PROPERTY_MAP = [
         'id' => 'string',
-        'name' => 'string',
-        'competitions' => 'int'
     ];
 }

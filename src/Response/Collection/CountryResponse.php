@@ -7,11 +7,11 @@ use APIFutbolAPI\Response;
 /**
  * CountryResponse.
  *
- * @method Model\Country[] getCountry()
+ * @method Model\Country[] getCountries()
  */
 class CountryResponse extends Response
 {
     const JSON_PROPERTY_MAP = [
-        'country' => 'Model\Country[]'
+        'countries' => 'Model\Country[]',
     ];
 }
