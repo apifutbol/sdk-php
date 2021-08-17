@@ -9,11 +9,13 @@ use APIFutbolAPI\Response;
  *
  * @method string getId()
  * @method string getName()
- * @method int getCompetitions()
+ * @method bool getNew()
  */
 class Country extends Response
 {
   const JSON_PROPERTY_MAP = [
     'id' => 'string',
+    'name' => 'string',
+    'new' => 'bool',
   ];
 }

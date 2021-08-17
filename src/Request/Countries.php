@@ -20,6 +20,8 @@ class Countries extends RequestCollection
       'query' => 'query {
         countries {
           id
+          name
+          new
         }
       }',
       'variables' => []
