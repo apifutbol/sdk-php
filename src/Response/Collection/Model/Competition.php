@@ -9,14 +9,15 @@ use APIFutbolAPI\Response;
  *
  * @method string getId()
  * @method string getName()
- * @method bool getNew()
+ * @method bool   getNew()
+ * @method bool   getLeague()
  */
 class Competition extends Response
 {
-	const JSON_PROPERTY_MAP = [
-		'id' => 'string',
-		'name' => 'string',
-		'new' => 'bool',
-		'league' => 'bool',
-	];
+  const JSON_PROPERTY_MAP = [
+    'id' => 'string',
+    'name' => 'string',
+    'new' => 'bool',
+    'league' => 'bool',
+  ];
 }

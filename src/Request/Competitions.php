@@ -9,23 +9,23 @@ use APIFutbolAPI\Response\{CompetitionsResponse};
  */
 class Competitions extends RequestCollection
 {
-	/**
-	 * Get Competitions
-	 *
-	 * @return CompetitionsResponse
-	 */
-	public function getCompetitions()
-	{
-		$request = $this->apifutbol->request([
-			'query' => 'query {
+  /**
+   * Get Competitions
+   *
+   * @return CompetitionsResponse
+   */
+  public function getCompetitions()
+  {
+    $request = $this->apifutbol->request([
+      'query' => 'query {
         competitions {
           id
           name
           new
         }
       }'
-		]);
+    ]);
 
-		return new CompetitionsResponse($request->getDecodedResponse());
-	}
+    return new CompetitionsResponse($request->getDecodedResponse());
+  }
 }
