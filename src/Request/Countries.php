@@ -2,7 +2,7 @@
 
 namespace APIFutbolAPI\Request;
 
-use APIFutbolAPI\Response;
+use APIFutbolAPI\Response\{CountriesResponse, CountryResponse};
 
 /**
  * Functions related to Countries
@@ -12,7 +12,7 @@ class Countries extends RequestCollection
   /**
    * Get Countries
    *
-   * @return \APIFutbolAPI\Response\CountriesResponse
+   * @return CountriesResponse
    */
   public function getCountries()
   {
@@ -26,7 +26,7 @@ class Countries extends RequestCollection
       }'
     ]);
 
-    return new Response\CountriesResponse($request->getDecodedResponse());
+    return new CountriesResponse($request->getDecodedResponse());
   }
 
   /**
@@ -34,7 +34,7 @@ class Countries extends RequestCollection
    * 
    * @param string $id
    *
-   * @return \APIFutbolAPI\Response\CountryResponse
+   * @return CountryResponse
    */
   public function getCountry(string $id)
   {
@@ -51,6 +51,6 @@ class Countries extends RequestCollection
       ]
     ]);
 
-    return new Response\CountryResponse($request->getDecodedResponse());
+    return new CountryResponse($request->getDecodedResponse());
   }
 }

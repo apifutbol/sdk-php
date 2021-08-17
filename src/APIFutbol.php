@@ -2,6 +2,8 @@
 
 namespace APIFutbolAPI;
 
+use APIFutbolAPI\Request\{Countries, Competitions};
+
 /**
  * API Futbol API for PHP
  *
@@ -16,14 +18,17 @@ class APIFutbol
    */
   public $client;
 
-  /** @var Request\Countries Collection of Countries related functions. */
+  /** @var Countries Collection of Countries related functions. */
   public $countries;
+
+  /** @var Competitions Collection of Competitions related functions. */
+  public $competitions;
 
   /**
    * Constructor.
    *
-   * @param string  	$token
-   * @param bool  	$prod
+   * @param string  $token
+   * @param bool    $prod
    */
   public function __construct(
     $token
@@ -33,7 +38,8 @@ class APIFutbol
     }
 
     $this->client = new Client($this, $token);
-    $this->countries = new Request\Countries($this);
+    $this->countries = new Countries($this);
+    $this->competitions = new Competitions($this);
   }
 
   /**
