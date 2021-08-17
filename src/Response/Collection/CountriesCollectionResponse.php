@@ -5,11 +5,11 @@ namespace APIFutbolAPI\Response\Collection;
 use APIFutbolAPI\Response;
 
 /**
- * CountryResponse.
+ * CountriesCollectionResponse.
  *
  * @method Model\Country[] getCountries()
  */
-class CountryResponse extends Response
+class CountriesCollectionResponse extends Response
 {
   const JSON_PROPERTY_MAP = [
     'countries' => 'Model\Country[]',
