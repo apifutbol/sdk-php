@@ -2,7 +2,7 @@
 
 namespace APIFutbolAPI\Request;
 
-use APIFutbolAPI\Response\{CompetitionsResponse};
+use APIFutbolAPI\Response\{CompetitionsResponse, CompetitionResponse};
 
 /**
  * Functions related to Competitions
@@ -22,10 +22,37 @@ class Competitions extends RequestCollection
           id
           name
           new
+          league
         }
       }'
     ]);
 
     return new CompetitionsResponse($request->getDecodedResponse());
+  }
+
+  /**
+   * Get Competition
+   * 
+   * @param string $id
+   *
+   * @return CompetitionResponse
+   */
+  public function getCompetition(string $id)
+  {
+    $request = $this->apifutbol->request([
+      'query' => 'query GetCountry($id: ID!) {
+        competition: competitions_by_id(id: $id) {
+          id
+          name
+          new,
+          league
+        }
+      }',
+      'variables' => [
+        'id' => $id
+      ]
+    ]);
+
+    return new CompetitionResponse($request->getDecodedResponse());
   }
 }
