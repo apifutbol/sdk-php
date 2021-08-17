@@ -40,7 +40,7 @@ class Competitions extends RequestCollection
   public function getCompetition(string $id)
   {
     $request = $this->apifutbol->request([
-      'query' => 'query GetCountry($id: ID!) {
+      'query' => 'query GetCompetition($id: ID!) {
         competition: competitions_by_id(id: $id) {
           id
           name
