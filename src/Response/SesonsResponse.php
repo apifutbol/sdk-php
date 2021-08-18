@@ -11,7 +11,7 @@ use APIFutbolAPI\Response;
  */
 class SeasonsResponse extends Response
 {
-	const JSON_PROPERTY_MAP = [
-		'data' => 'Model\Season[]',
-	];
+  const JSON_PROPERTY_MAP = [
+    'data' => 'Model\Season[]',
+  ];
 }

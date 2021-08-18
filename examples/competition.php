@@ -10,10 +10,10 @@ $sdk = new \APIFutbolAPI\APIFutbol('token');
 $id = 'AAAAAAAA-BBBB-CCCC-EEEE-DDDDDDDDDDDD';
 
 try {
-	$competition = $sdk->competitions->getCompetition($id)->getData();
+  $competition = $sdk->competitions->getCompetition($id)->getData();
 
-	print_r([$competition->getId()]);
+  print_r([$competition->getId()]);
 } catch (\Exception $e) {
-	echo 'Something went wrong: ' . $e->getMessage() . "\n";
-	exit(0);
+  echo 'Something went wrong: ' . $e->getMessage() . "\n";
+  exit(0);
 }
