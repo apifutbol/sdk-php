@@ -15,24 +15,34 @@ class Request
   protected $_parent;
 
   /**
-   * GraphQL Request
+   * Endpoint
+   *
+   * @var string
+   */
+  protected $_endpoint;
+
+  /**
+   * Query Params
    *
    * @var array
    */
-  protected $_body;
+  protected $_query;
 
   /**
    * Constructor.
    *
    * @param APIFutbol $parent
-   * @param array     $body
+   * @param string    $endpoint
+   * @param array     $query
    */
   public function __construct(
     \APIFutbolAPI\APIFutbol $parent,
-    $body
+    $endpoint,
+    $query
   ) {
     $this->_parent = $parent;
-    $this->_body = $body;
+    $this->_endpoint = $endpoint;
+    $this->_query = $query;
   }
 
   /**
@@ -66,7 +76,8 @@ class Request
   {
     try {
       $this->_httpResponse = $this->_parent->client->api(
-        $this->_body
+        $this->_endpoint,
+        $this->_query
       );
     } catch (\Exception $e) {
       echo 'Something went wrong: ' . $e->getMessage() . "\n";

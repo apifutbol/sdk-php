@@ -5,13 +5,13 @@ namespace APIFutbolAPI\Response;
 use APIFutbolAPI\Response;
 
 /**
- * CountryResponse.
+ * SeasonResponse.
  *
- * @method Country getData()
+ * @method Season getData()
  */
-class CountryResponse extends Response
+class SeasonResponse extends Response
 {
 	const JSON_PROPERTY_MAP = [
-		'data' => 'Model\Country',
+		'data' => 'Model\Season',
 	];
 }

@@ -10,7 +10,7 @@ $sdk = new \APIFutbolAPI\APIFutbol('token');
 try {
   $countries = $sdk->countries->getCountries()->getData();
 
-  foreach ($countries->getCountries() as $country) {
+  foreach ($countries as $country) {
     print_r([$country->getId()]);
   };
 } catch (\Exception $e) {

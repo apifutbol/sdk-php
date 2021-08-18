@@ -11,20 +11,19 @@ class Competitions extends RequestCollection
 {
   /**
    * Get Competitions
-   *
+   * 
+   * @param int $limit
+   * @param int $offset
+   * 
    * @return CompetitionsResponse
    */
-  public function getCompetitions()
-  {
-    $request = $this->apifutbol->request([
-      'query' => 'query {
-        competitions {
-          id
-          name
-          new
-          league
-        }
-      }'
+  public function getCompetitions(
+    int $limit = 10,
+    int $offset = 0
+  ) {
+    $request = $this->apifutbol->request('/items/competitions', [
+      'limit' => $limit,
+      'offset' => $offset
     ]);
 
     return new CompetitionsResponse($request->getDecodedResponse());
@@ -39,19 +38,7 @@ class Competitions extends RequestCollection
    */
   public function getCompetition(string $id)
   {
-    $request = $this->apifutbol->request([
-      'query' => 'query GetCompetition($id: ID!) {
-        competition: competitions_by_id(id: $id) {
-          id
-          name
-          new,
-          league
-        }
-      }',
-      'variables' => [
-        'id' => $id
-      ]
-    ]);
+    $request = $this->apifutbol->request("/items/competitions/$id", $id);
 
     return new CompetitionResponse($request->getDecodedResponse());
   }

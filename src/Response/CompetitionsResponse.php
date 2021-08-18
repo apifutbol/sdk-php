@@ -7,11 +7,11 @@ use APIFutbolAPI\Response;
 /**
  * CompetitionsResponse.
  *
- * @method CompetitionsCollectionResponse[] getData()
+ * @method Competition[] getData()
  */
 class CompetitionsResponse extends Response
 {
   const JSON_PROPERTY_MAP = [
-    'data' => 'Collection\CompetitionsCollectionResponse',
+    'data' => 'Model\Competition[]',
   ];
 }

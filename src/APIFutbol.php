@@ -2,7 +2,7 @@
 
 namespace APIFutbolAPI;
 
-use APIFutbolAPI\Request\{Countries, Competitions};
+use APIFutbolAPI\Request\{Countries, Competitions, Seasons};
 
 /**
  * API Futbol API for PHP
@@ -24,6 +24,9 @@ class APIFutbol
   /** @var Competitions Collection of Competitions related functions. */
   public $competitions;
 
+  /** @var Seasons Collection of Seasons related functions. */
+  public $seasons;
+
   /**
    * Constructor.
    *
@@ -40,18 +43,21 @@ class APIFutbol
     $this->client = new Client($this, $token);
     $this->countries = new Countries($this);
     $this->competitions = new Competitions($this);
+    $this->seasons = new Seasons($this);
   }
 
   /**
    * Create an API request.
    *
-   * @param array    $body
+   * @param string  $endpoint
+   * @param array   $query
    *
    * @return \APIFutbolAPI\Request
    */
   public function request(
-    $body
+    $endpoint,
+    $query = []
   ) {
-    return new Request($this, $body);
+    return new Request($this, $endpoint, $query);
   }
 }

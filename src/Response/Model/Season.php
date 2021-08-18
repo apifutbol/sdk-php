@@ -1,23 +1,23 @@
 <?php
 
-namespace APIFutbolAPI\Response\Collection\Model;
+namespace APIFutbolAPI\Response\Model;
 
 use APIFutbolAPI\Response;
 
 /**
- * Competition.
+ * Season.
  *
  * @method string getId()
+ * @method string getCompetition()
  * @method string getName()
  * @method bool   getNew()
- * @method bool   getLeague()
  */
-class Competition extends Response
+class Season extends Response
 {
   const JSON_PROPERTY_MAP = [
     'id' => 'string',
+    'competition' => 'string',
     'name' => 'string',
     'new' => 'bool',
-    'league' => 'bool',
   ];
 }

@@ -48,15 +48,17 @@ class Client
   /**
    * Wraps Guzzle Request.
    *
-   * @param array $body
+   * @param string  $endpoint
+   * @param array   $query
    *
    * @return HttpResponseInterface
    */
   protected function _guzzleRequest(
-    $body
+    $endpoint,
+    $query
   ) {
     try {
-      $response = $this->_guzzleClient->request('POST', '/graphql', ['json' => $body]);
+      $response = $this->_guzzleClient->request('GET', $endpoint, ['query' => $query]);
     } catch (\Exception $e) {
       echo 'Something went wrong: ' . $e->getMessage() . "\n";
       exit(0);
@@ -68,14 +70,16 @@ class Client
   /**
    * Perform an API call.
    *
-   * @param array $body
+   * @param string  $endpoint
+   * @param array   $query
    *
    * @return HttpResponseInterface
    */
   public function api(
-    $body
+    $endpoint,
+    $query
   ) {
-    return $this->_guzzleRequest($body);
+    return $this->_guzzleRequest($endpoint, $query);
   }
 
   /**

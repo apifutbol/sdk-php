@@ -11,19 +11,19 @@ class Countries extends RequestCollection
 {
   /**
    * Get Countries
-   *
+   * 
+   * @param int $limit
+   * @param int $offset
+   * 
    * @return CountriesResponse
    */
-  public function getCountries()
-  {
-    $request = $this->apifutbol->request([
-      'query' => 'query {
-        countries {
-          id
-          name
-          new
-        }
-      }'
+  public function getCountries(
+    int $limit = 10,
+    int $offset = 0
+  ) {
+    $request = $this->apifutbol->request('/items/countries', [
+      'limit' => $limit,
+      'offset' => $offset
     ]);
 
     return new CountriesResponse($request->getDecodedResponse());
@@ -38,18 +38,7 @@ class Countries extends RequestCollection
    */
   public function getCountry(string $id)
   {
-    $request = $this->apifutbol->request([
-      'query' => 'query GetCountry($id: ID!) {
-        country: countries_by_id(id: $id) {
-          id
-          name
-          new
-        }
-      }',
-      'variables' => [
-        'id' => $id
-      ]
-    ]);
+    $request = $this->apifutbol->request("/items/countries/$id", $id);
 
     return new CountryResponse($request->getDecodedResponse());
   }
