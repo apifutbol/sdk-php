@@ -1,6 +1,6 @@
 {
   "name": "apifutbol/sdk-php",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "API Futbol SDK for PHP",
   "keywords": [
     "api",
