@@ -4,5 +4,5 @@ namespace APIFutbolAPI;
 
 class Constants
 {
-  const API_URL = 'http://api.api.futbol/';
+  const API_URL = 'http://localhost:8055/';
 }
