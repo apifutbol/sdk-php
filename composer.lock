@@ -4,29 +4,32 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6084b9243b28ee8aa0258bff4bce2825",
+    "content-hash": "8d9a9a2f62f0813f971f3620b8b26935",
     "packages": [
         {
             "name": "corneltek/getoptionkit",
-            "version": "2.6.0",
+            "version": "2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/c9s/GetOptionKit.git",
-                "reference": "995607ddf4fc90ebdb4a7d58fe972d581ad8495f"
+                "reference": "8f79aa38a90f1c0e66e712ed72fbc259130e6be9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/c9s/GetOptionKit/zipball/995607ddf4fc90ebdb4a7d58fe972d581ad8495f",
-                "reference": "995607ddf4fc90ebdb4a7d58fe972d581ad8495f",
+                "url": "https://api.github.com/repos/c9s/GetOptionKit/zipball/8f79aa38a90f1c0e66e712ed72fbc259130e6be9",
+                "reference": "8f79aa38a90f1c0e66e712ed72fbc259130e6be9",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": ">=7.2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.0 || ^9.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.6.x-dev"
+                    "dev-master": "2.7.x-dev"
                 }
             },
             "autoload": {
@@ -48,9 +51,9 @@
             "homepage": "http://github.com/c9s/GetOptionKit",
             "support": {
                 "issues": "https://github.com/c9s/GetOptionKit/issues",
-                "source": "https://github.com/c9s/GetOptionKit/tree/2.6.0"
+                "source": "https://github.com/c9s/GetOptionKit/tree/2.7.0"
             },
-            "time": "2017-06-30T14:54:48+00:00"
+            "time": "2022-12-15T05:55:38+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -292,21 +295,21 @@
         },
         {
             "name": "lazyjsonmapper/lazyjsonmapper",
-            "version": "v1.6.4",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lazyjsonmapper/lazyjsonmapper.git",
-                "reference": "0b047af4b48ba8c44bbcdbe8e1e6a53e2303c1bb"
+                "reference": "9da50ec06e8d4e214d1ca1831487c8139ec97c30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lazyjsonmapper/lazyjsonmapper/zipball/0b047af4b48ba8c44bbcdbe8e1e6a53e2303c1bb",
-                "reference": "0b047af4b48ba8c44bbcdbe8e1e6a53e2303c1bb",
+                "url": "https://api.github.com/repos/lazyjsonmapper/lazyjsonmapper/zipball/9da50ec06e8d4e214d1ca1831487c8139ec97c30",
+                "reference": "9da50ec06e8d4e214d1ca1831487c8139ec97c30",
                 "shasum": ""
             },
             "require": {
                 "corneltek/getoptionkit": "2.*",
-                "php": ">=5.6"
+                "php": ">=7.4"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^2.7.1",
@@ -340,9 +343,15 @@
             ],
             "support": {
                 "issues": "https://github.com/lazyjsonmapper/lazyjsonmapper/issues",
-                "source": "https://github.com/lazyjsonmapper/lazyjsonmapper/tree/v1.6.4"
+                "source": "https://github.com/lazyjsonmapper/lazyjsonmapper/tree/v2.0.0"
             },
-            "time": "2019-12-05T22:22:33+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/mgp25",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-03-06T18:48:23+00:00"
         },
         {
             "name": "psr/http-client",
@@ -559,5 +568,5 @@
         "php": ">=5.6"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.3.0"
 }
