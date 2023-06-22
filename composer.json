@@ -23,6 +23,6 @@
   "require": {
     "php": ">=5.6",
     "guzzlehttp/guzzle": "^7.3",
-    "lazyjsonmapper/lazyjsonmapper": "^1.6"
+    "lazyjsonmapper/lazyjsonmapper": "^2.0"
   }
 }
